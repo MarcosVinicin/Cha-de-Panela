@@ -1,0 +1,617 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Chá de Casa Nova · Laís & Matheus</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600;700&family=Dancing+Script:wght@700&family=Josefin+Sans:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+<style>
+:root {
+  --marrom: #8B4A22;
+  --marrom-escuro: #5A2A12;
+  --caramelo: #C46F2B;
+  --dourado: #D99A32;
+  --creme: #FFF0D2;
+  --creme-claro: #FFF8EC;
+  --bege: #F4DDB8;
+  --texto: #4A2610;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  min-height: 100vh;
+  padding: 28px 12px;
+  background:
+    radial-gradient(circle at top left, rgba(217,154,50,0.28), transparent 32%),
+    radial-gradient(circle at bottom right, rgba(139,74,34,0.25), transparent 35%),
+    linear-gradient(135deg, #f7e2bd, #fff5df);
+  font-family: 'Josefin Sans', sans-serif;
+  color: var(--texto);
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+.convite {
+  width: 100%;
+  max-width: 430px;
+  background: var(--creme-claro);
+  border-radius: 34px;
+  overflow: hidden;
+  position: relative;
+  box-shadow: 0 24px 65px rgba(76, 38, 12, 0.28);
+  border: 3px solid rgba(139, 74, 34, 0.35);
+}
+
+/* BANDEIRINHAS */
+.bandeirinhas {
+  height: 46px;
+  background: var(--marrom);
+  display: flex;
+  justify-content: center;
+  gap: 6px;
+  padding-top: 8px;
+}
+
+.bandeirinha {
+  width: 25px;
+  height: 28px;
+  clip-path: polygon(0 0, 100% 0, 100% 75%, 50% 100%, 0 75%);
+  background: #E6A63E;
+}
+
+.bandeirinha:nth-child(2n) {
+  background: #C46F2B;
+}
+
+.bandeirinha:nth-child(3n) {
+  background: #F4DDB8;
+}
+
+/* TOPO */
+.topo {
+  position: relative;
+  padding: 34px 24px 18px;
+  text-align: center;
+  background:
+    radial-gradient(circle at center, rgba(255,255,255,0.55), transparent 65%),
+    linear-gradient(180deg, #FFF0D2, #F6D7A5);
+}
+
+.topo::after {
+  content: "";
+  position: absolute;
+  left: 28px;
+  right: 28px;
+  bottom: 0;
+  height: 1px;
+  background: linear-gradient(to right, transparent, var(--marrom), transparent);
+  opacity: 0.35;
+}
+
+.img-chapeu {
+  position: absolute;
+  top: 12px;
+  right: -30px;
+  width: 128px;
+  transform: rotate(13deg);
+  filter: drop-shadow(0 8px 9px rgba(83, 38, 10, 0.35));
+  z-index: 2;
+}
+
+.img-bota {
+  position: absolute;
+  top: 76px;
+  left: -34px;
+  width: 112px;
+  transform: rotate(-11deg) scaleX(-1);
+  filter: drop-shadow(0 8px 9px rgba(83, 38, 10, 0.28));
+  z-index: 2;
+}
+
+.chamada {
+  font-size: 11px;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  font-weight: 700;
+  color: var(--marrom);
+  margin-bottom: 12px;
+  position: relative;
+  z-index: 3;
+}
+
+.titulo {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 48px;
+  line-height: 0.92;
+  font-weight: 600;
+  color: var(--marrom-escuro);
+  position: relative;
+  z-index: 3;
+}
+
+.titulo span {
+  display: block;
+  font-family: 'Dancing Script', cursive;
+  font-size: 64px;
+  color: var(--caramelo);
+  margin-top: 4px;
+}
+
+.nomes {
+  margin-top: 18px;
+  font-family: 'Dancing Script', cursive;
+  font-size: 42px;
+  color: var(--marrom-escuro);
+  position: relative;
+  z-index: 3;
+}
+
+.subfrase {
+  margin: 12px auto 0;
+  max-width: 300px;
+  font-size: 14px;
+  line-height: 1.5;
+  color: #744019;
+  position: relative;
+  z-index: 3;
+}
+
+/* IMAGEM CASAL */
+.area-casal {
+  padding: 28px 24px 20px;
+  background: linear-gradient(180deg, #FFF8EC, #FFF0D2);
+  text-align: center;
+}
+
+.moldura-casal {
+  width: 100%;
+  max-width: 330px;
+  margin: 0 auto;
+  padding: 12px;
+  border-radius: 28px;
+  background:
+    linear-gradient(#FFF8EC, #FFF8EC) padding-box,
+    linear-gradient(135deg, var(--dourado), var(--marrom), var(--caramelo)) border-box;
+  border: 3px solid transparent;
+  box-shadow: 0 14px 34px rgba(111, 56, 16, 0.18);
+  position: relative;
+}
+
+.moldura-casal::before {
+  content: "💕";
+  position: absolute;
+  top: -19px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: var(--marrom);
+  color: #fff;
+  font-size: 17px;
+  padding: 5px 14px;
+  border-radius: 999px;
+  box-shadow: 0 6px 12px rgba(0,0,0,0.18);
+}
+
+.img-casal {
+  width: 100%;
+  display: block;
+  border-radius: 21px;
+}
+
+/* CORPO */
+.corpo {
+  padding: 8px 24px 30px;
+  background: #FFF0D2;
+}
+
+.mensagem {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 21px;
+  font-weight: 600;
+  font-style: italic;
+  text-align: center;
+  color: var(--marrom-escuro);
+  line-height: 1.45;
+  margin: 8px auto 26px;
+  max-width: 340px;
+}
+
+/* DATA */
+.data-card {
+  background: var(--marrom-escuro);
+  color: var(--creme-claro);
+  border-radius: 24px;
+  padding: 22px 16px;
+  box-shadow: 0 12px 24px rgba(80, 38, 10, 0.24);
+  position: relative;
+  overflow: hidden;
+}
+
+.data-card::before {
+  content: "";
+  position: absolute;
+  inset: 8px;
+  border: 1px dashed rgba(255, 240, 210, 0.35);
+  border-radius: 18px;
+  pointer-events: none;
+}
+
+.data-label {
+  text-align: center;
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: 4px;
+  color: #F1C16A;
+  margin-bottom: 12px;
+  font-weight: 700;
+}
+
+.data-linha {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  align-items: center;
+  gap: 12px;
+  position: relative;
+  z-index: 2;
+}
+
+.data-info {
+  text-align: center;
+}
+
+.data-info small {
+  display: block;
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  color: rgba(255,255,255,0.55);
+  margin-bottom: 5px;
+}
+
+.data-info strong {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 25px;
+  color: #fff;
+}
+
+.numero {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 86px;
+  line-height: 0.82;
+  color: #F1C16A;
+  font-weight: 700;
+}
+
+.mes {
+  text-align: center;
+  margin-top: 12px;
+  font-size: 11px;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  color: #F1C16A;
+  font-weight: 700;
+}
+
+/* BOTÕES */
+.botoes {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 13px;
+  margin-top: 26px;
+}
+
+.botao {
+  min-height: 62px;
+  border-radius: 18px;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 14px 18px;
+  font-weight: 700;
+  transition: 0.25s ease;
+  box-shadow: 0 7px 0 rgba(74, 38, 16, 0.22);
+}
+
+.botao:hover {
+  transform: translateY(3px);
+  box-shadow: 0 3px 0 rgba(74, 38, 16, 0.22);
+}
+
+.botao .icone {
+  width: 42px;
+  height: 42px;
+  border-radius: 14px;
+  background: rgba(255,255,255,0.28);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 22px;
+  flex-shrink: 0;
+}
+
+.botao .texto {
+  text-align: left;
+  line-height: 1.2;
+}
+
+.botao .texto span {
+  display: block;
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  opacity: 0.8;
+}
+
+.botao .texto strong {
+  display: block;
+  font-size: 17px;
+}
+
+.botao-presentes {
+  background: linear-gradient(135deg, #D98A33, #9B4F1B);
+  color: #fff;
+}
+
+.botao-presenca {
+  background: linear-gradient(135deg, #704019, #3F1D08);
+  color: #FFE4AA;
+}
+
+/* LOCAL */
+.local {
+  margin-top: 24px;
+  background: #FFF8EC;
+  border-radius: 22px;
+  padding: 20px 18px;
+  border: 1px solid rgba(139, 74, 34, 0.25);
+  box-shadow: 0 8px 18px rgba(111, 56, 16, 0.08);
+}
+
+.local-topo {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 10px;
+  color: var(--marrom);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  font-size: 11px;
+}
+
+.local a {
+  display: inline-block;
+  color: var(--marrom-escuro);
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 22px;
+  font-weight: 700;
+  text-decoration: none;
+  border-bottom: 2px solid var(--caramelo);
+  margin-bottom: 10px;
+}
+
+.endereco {
+  font-size: 14px;
+  line-height: 1.55;
+  color: #6A3515;
+}
+
+/* RODAPÉ */
+.rodape {
+  padding: 28px 24px 34px;
+  text-align: center;
+  background:
+    radial-gradient(circle at top, rgba(255,220,150,0.12), transparent 60%),
+    var(--marrom);
+  color: var(--creme);
+}
+
+.rodape .decoracao {
+  font-size: 24px;
+  margin-bottom: 10px;
+}
+
+.rodape p {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 20px;
+  line-height: 1.45;
+  font-style: italic;
+  margin-bottom: 14px;
+}
+
+.assinatura {
+  font-family: 'Dancing Script', cursive;
+  font-size: 38px;
+  color: #FFD886;
+}
+
+/* RESPONSIVO */
+@media (max-width: 480px) {
+  body {
+    padding: 16px 8px;
+  }
+
+  .convite {
+    max-width: 390px;
+    border-radius: 26px;
+  }
+
+  .topo {
+    padding: 30px 20px 16px;
+  }
+
+  .titulo {
+    font-size: 41px;
+  }
+
+  .titulo span {
+    font-size: 55px;
+  }
+
+  .nomes {
+    font-size: 37px;
+  }
+
+  .img-chapeu {
+    width: 104px;
+    right: -28px;
+  }
+
+  .img-bota {
+    width: 92px;
+    left: -30px;
+    top: 82px;
+  }
+
+  .area-casal {
+    padding: 26px 18px 18px;
+  }
+
+  .corpo {
+    padding: 8px 18px 28px;
+  }
+
+  .numero {
+    font-size: 74px;
+  }
+
+  .data-info strong {
+    font-size: 21px;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<main class="convite">
+
+  <div class="bandeirinhas">
+    <div class="bandeirinha"></div>
+    <div class="bandeirinha"></div>
+    <div class="bandeirinha"></div>
+    <div class="bandeirinha"></div>
+    <div class="bandeirinha"></div>
+    <div class="bandeirinha"></div>
+    <div class="bandeirinha"></div>
+    <div class="bandeirinha"></div>
+    <div class="bandeirinha"></div>
+    <div class="bandeirinha"></div>
+  </div>
+
+  <section class="topo">
+    <img src="Chapeu3.png" alt="Chapéu junino" class="img-chapeu">
+    <img src="Bota3.png" alt="Bota country" class="img-bota">
+
+    <div class="chamada">Venha celebrar o nosso</div>
+
+    <h1 class="titulo">
+      Chá de
+      <span>Panela</span>
+    </h1>
+
+    <div class="nomes">Laís &amp; João</div>
+
+    <p class="subfrase">
+      Um momento especial para comemorar nosso novo lar com pessoas queridas.
+    </p>
+  </section>
+
+  <section class="area-casal">
+    <div class="moldura-casal">
+      <img src="Casal3.png" alt="Laís e Matheus" class="img-casal">
+    </div>
+  </section>
+
+  <section class="corpo">
+
+    <p class="mensagem">
+      Com muito amor, fogueira e alegria,<br>
+      queremos comemorar esse novo lar<br>
+      com você ao nosso lado!
+    </p>
+
+    <div class="data-card">
+      <div class="data-label">Quando será</div>
+
+      <div class="data-linha">
+        <div class="data-info">
+          <small>Dia</small>
+          <strong>Sabado</strong>
+        </div>
+
+        <div class="numero">25</div>
+
+        <div class="data-info">
+          <small>Hora</small>
+          <strong>19h</strong>
+        </div>
+      </div>
+
+      <div class="mes">Julho · 2026</div>
+    </div>
+
+    <div class="botoes">
+
+      <a href="https://cha-de-casa-nova-hg3u.listaideal.com.br/pt" target="_blank" rel="noopener" class="botao botao-presentes">
+        <div class="icone">🎁</div>
+        <div class="texto">
+          <span>Acessar</span>
+          <strong>Lista de Presentes</strong>
+        </div>
+      </a>
+
+      <a href="https://wa.me/5533999999999?text=Oi,%20confirmo%20minha%20presen%C3%A7a%20no%20Ch%C3%A1%20de%20Casa%20Nova%20da%20La%C3%ADs%20e%20do%20Jo%C3%A3o!" target="_blank" rel="noopener" class="botao botao-presenca">
+        <div class="icone">💬</div>
+        <div class="texto">
+          <span>Confirmar</span>
+          <strong>Minha presença</strong>
+        </div>
+      </a>
+
+    </div>
+
+    <div class="local">
+      <div class="local-topo">
+        <span>📍</span>
+        <span>Local do evento</span>
+      </div>
+
+      <a href="COLE_AQUI_O_LINK_DO_GOOGLE_MAPS" target="_blank" rel="noopener">
+        Ver no Google Maps →
+      </a>
+
+      <p class="endereco">
+        R. José Moreira de Souza, 100<br>
+        Novo Horizonte · Teófilo Otoni — MG<br>
+        CEP 39800-000
+      </p>
+    </div>
+
+  </section>
+
+  <footer class="rodape">
+    <div class="decoracao">🌽 🔥 🌾</div>
+
+    <p>
+      Contamos com vocês para fazer parte<br>
+      desse momento tão especial!
+    </p>
+
+    <div class="assinatura">Laís &amp; João</div>
+  </footer>
+
+</main>
+
+</body>
+</html>
